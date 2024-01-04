@@ -7,10 +7,10 @@ const Header = () => {
             <nav>
                 <ul>
                     <li>
-                        <Button to={"/"}>HomePage</Button>
+                        <Button to={"/"}>Our Mission</Button>
                     </li>
                     <li>
-                        <Button to={"/sessions"}>Sessions</Button>
+                        <Button to={"/sessions"}>Browse Sessions</Button>
                     </li>
                     <li>
                         <Button to={"/"}>Upcomming Sessions</Button>

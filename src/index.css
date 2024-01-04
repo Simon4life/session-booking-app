@@ -224,6 +224,9 @@ ul {
   font-size: 1rem;
 }
 
+.button {
+  display: inline-block;
+}
 .session-item .session-data .actions {
   margin: 2rem 0 1rem 0;
 }
