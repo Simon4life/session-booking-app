@@ -22,7 +22,7 @@ export default function SessionsPage() {
                 <div className="action">
                   <Button  to={`/sessions/${session.id}`}>Learn More</Button>
                 </div>
-                
+
               </div>
             </div>
           

@@ -1,7 +1,7 @@
 
 import { createContext, useContext, useReducer, type ReactNode } from "react";
 
-type Session = {
+export type Session = {
     id: string,
     title: string,
     summary: string,
@@ -46,7 +46,7 @@ const initialState: Sessions = {
 
 const sessionReducer = (state: Sessions, action: Action): Sessions => {
     if(action.type === "BOOK_SESSION") {
-
+        console.log(action.payload)
         return {
             ...state,
             sessions: [

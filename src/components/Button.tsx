@@ -6,7 +6,8 @@ type Anchor = ComponentPropsWithoutRef<typeof Link> & {
 }
 
 type Button = ComponentPropsWithoutRef<"button"> & {
-    to?: never
+    to?: never,
+    children: string
 }
 
 const isLink = (props: Anchor | Button): props is Anchor => {
@@ -17,7 +18,7 @@ const Button = (props: Anchor | Button) => {
     if(isLink(props)) {
         return <Link className="button" {...props}></Link>
     }
-    return <button className="button">Click me</button>
+    return <button className="button" {...props}>{props.children}</button>
 }
 
 export default Button
