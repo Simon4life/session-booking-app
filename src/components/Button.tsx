@@ -15,7 +15,9 @@ const isLink = (props: Anchor | Button): props is Anchor => {
 
 const Button = (props: Anchor | Button) => {
     if(isLink(props)) {
-        return <Link className="button" {...props}>click Me</Link>
+        return <Link className="button" {...props}></Link>
     }
     return <button className="button">Click me</button>
 }
+
+export default Button

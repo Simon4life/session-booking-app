@@ -1,11 +1,20 @@
+import Button from "./Button"
+
 const Header = () => {
     return (
         <div id="main-header">
             <h1>Booking Session</h1>
             <nav>
                 <ul>
-                    <li><a>link 1</a></li>
-                    <li><a>link 1</a></li>
+                    <li>
+                        <Button to={"/"}>HomePage</Button>
+                    </li>
+                    <li>
+                        <Button to={"/sessions"}>Sessions</Button>
+                    </li>
+                    <li>
+                        <Button to={"/"}>Upcomming Sessions</Button>
+                    </li>
                 </ul>
             </nav>
         </div>
