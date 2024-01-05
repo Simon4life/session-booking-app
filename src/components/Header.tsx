@@ -1,6 +1,6 @@
 import Button from "./Button";
 import { NavLink } from "react-router-dom";
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import UpcomingSessions from "./UpcomingSessions";
 
 const Header = () => {

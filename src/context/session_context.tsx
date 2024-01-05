@@ -13,7 +13,7 @@ export type Sessions = {
 }
 type SessionContextValue = Sessions & {
     addSession: (sessionObj: Session) => void,
-    removeSession: () => void
+    removeSession: (id: string) => void
 }
 
 const SessionContext = createContext<SessionContextValue | null>(null)
@@ -36,6 +36,7 @@ type BookSessionAction = {
 }
 type RemoveSessionAction = {
     type: "REMOVE_SESSION"
+    payload: string
 }
 
 type Action = BookSessionAction | RemoveSessionAction;
@@ -46,7 +47,12 @@ const initialState: Sessions = {
 
 const sessionReducer = (state: Sessions, action: Action): Sessions => {
     if(action.type === "BOOK_SESSION") {
-        
+        const sessionAlreadyExists = state.sessions.find(session => session.id === action.payload.id);
+        if(sessionAlreadyExists) {
+            return {
+                ...state
+            }
+        }
         return {
             ...state,
             sessions: [
@@ -60,6 +66,14 @@ const sessionReducer = (state: Sessions, action: Action): Sessions => {
             ]
         }
     }
+    
+    if(action.type === "REMOVE_SESSION") {
+        const filteredSession = state.sessions.filter(session => session.id !== action.payload)
+        return {
+            ...state,
+            sessions: filteredSession
+        }
+    }
     return {...state}
 }
 
@@ -71,8 +85,8 @@ const SessionContextProvider = ({children}: SessionContextProp) => {
     addSession(sessionObj) {
         dispatch({type: "BOOK_SESSION", payload: sessionObj})
     },
-    removeSession() {
-        
+    removeSession(id) {
+        dispatch({type: "REMOVE_SESSION", payload: id})
     },
 
    }
