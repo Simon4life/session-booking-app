@@ -17,6 +17,7 @@ const Modal = forwardRef<HandleModal, ModalPropType>(({children, onClose}, ref) 
         return {
             open() {
                 if(dialog.current) {
+
                     dialog.current.showModal();
                 }
             },

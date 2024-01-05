@@ -2,6 +2,7 @@ import { useRef, type FormEvent, useEffect } from 'react'
 import Input from './Input';
 import { useSessionContext, type Session } from '../context/session_context';
 import Modal, { HandleModal } from './Modal';
+import Button from './Button';
 
 type BookSessionFormProps = {
     onDone: () => void
@@ -23,15 +24,20 @@ const BookSessionForm = ({onDone, session}: BookSessionFormProps) => {
         e.preventDefault()
         const form = new FormData(e.currentTarget);
         const formData = Object.fromEntries(form);
+        // console.log(form)
         addSession(session);
         onDone();
     }
 
     return (
-        <Modal onClose={onDone}>
-            <form ref={ref} onSubmit={handleFormSubmit}>
+        <Modal onClose={onDone} ref={modal} >
+            <form ref={ref} onSubmit={handleFormSubmit} className='control'>
                 <Input label='your name' type='text' placeholder='enter your name' id='user-name'/>
-                <Input label='your type="email" placeholder="enter your email' id='user-email'/>
+                <Input label='email' type="email" placeholder="enter your email" id='user-email'/>
+                <div className='actions'>
+                    <Button type="button" onClick={onDone}>cancel</Button>
+                    <Button type='submit'>Submit</Button>
+                </div>
             </form>
         </Modal>
         

@@ -8,7 +8,7 @@ export type Session = {
     duration: number,
 }
 
-type Sessions = {
+export type Sessions = {
     sessions: Session[]
 }
 type SessionContextValue = Sessions & {
@@ -46,7 +46,7 @@ const initialState: Sessions = {
 
 const sessionReducer = (state: Sessions, action: Action): Sessions => {
     if(action.type === "BOOK_SESSION") {
-        console.log(action.payload)
+        
         return {
             ...state,
             sessions: [

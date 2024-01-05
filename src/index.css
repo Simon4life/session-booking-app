@@ -81,6 +81,12 @@ ul {
   text-align: right;
 }
 
+.actions button {
+  display: inline-block;
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+}
+
 #main-header {
   width: 80%;
   max-width: 80rem;
